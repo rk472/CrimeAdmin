@@ -7,5 +7,39 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".CrimeDetailsActivity">
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="title"
+        android:textSize="22sp"
+        android:id="@+id/crime_details_title"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="details"
+        android:textSize="18sp"
+        android:id="@+id/crime_details_desc"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:textSize="18sp"
+        android:id="@+id/crime_details_status"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textSize="18sp"
+        android:id="@+id/crime_details_date"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pin"
+        android:textSize="18sp"
+        android:id="@+id/crime_details_pin"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/change_crime_button"
+        android:visibility="gone"/>
 </LinearLayout>

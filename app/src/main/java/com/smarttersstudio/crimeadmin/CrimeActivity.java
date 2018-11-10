@@ -1,5 +1,6 @@
 package com.smarttersstudio.crimeadmin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -44,7 +45,7 @@ public class CrimeActivity extends AppCompatActivity {
         FirebaseRecyclerOptions<Crime> options=new FirebaseRecyclerOptions.Builder<Crime>().setQuery(q,Crime.class).build();
         f=new FirebaseRecyclerAdapter<Crime, MyCrimeViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final MyCrimeViewHolder holder, int position, @NonNull Crime model) {
+            protected void onBindViewHolder(@NonNull final MyCrimeViewHolder holder, final int position, @NonNull final Crime model) {
                 if(model.getStatus().equalsIgnoreCase("solved")){
                     holder.setInvisible();
                 }else {
@@ -53,8 +54,19 @@ public class CrimeActivity extends AppCompatActivity {
                     holder.setTitle(model.getTitle());
                     holder.setDesc(model.getDesc());
                     holder.setPin(model.getPin());
-                    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("users").child(model.getUid());
-
+                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i=new Intent(CrimeActivity.this,CrimeDetailsActivity.class);
+                            i.putExtra("date",model.getDate());
+                            i.putExtra("id",getRef(position).getKey());
+                            i.putExtra("desc",model.getDesc());
+                            i.putExtra("title",model.getTitle());
+                            i.putExtra("status",model.getStatus());
+                            i.putExtra("pin",model.getPin());
+                            startActivity(i);
+                        }
+                    });
                 }
             }
 
