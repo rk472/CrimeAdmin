@@ -103,6 +103,9 @@
         android:layout_height="50sp"
         android:fontFamily="@font/acme"
         android:layout_marginBottom="5sp"
+        android:textSize="17sp"
+        android:textColor="#ffffff"
+        android:background="@color/colorAccent"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:id="@+id/change_complain_button"/>
