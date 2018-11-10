@@ -14,12 +14,12 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="5sp"
         android:textSize="22sp"
-        android:id="@+id/crime_details_title"/>
+        android:id="@+id/complain_details_title"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_marginBottom="60sp"
         android:fillViewport="true"
-        android:layout_below="@id/crime_details_title"
+        android:layout_below="@id/complain_details_title"
         android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,7 +50,7 @@
                             android:text="Status"
                             android:fontFamily="@font/acme"
                             android:textSize="18sp"
-                            android:id="@+id/crime_details_status"/>
+                            android:id="@+id/complain_details_status"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -68,7 +68,7 @@
                             android:text="Pin"
                             android:fontFamily="@font/acme"
                             android:textSize="18sp"
-                            android:id="@+id/crime_details_pin"/>
+                            android:id="@+id/complain_details_pin"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -85,7 +85,7 @@
                         android:layout_gravity="right"
                         android:fontFamily="@font/acme"
                         android:textSize="18sp"
-                        android:id="@+id/crime_details_date"/>
+                        android:id="@+id/complain_details_date"/>
                 </LinearLayout>
             </LinearLayout>
             <TextView
@@ -95,7 +95,7 @@
                 android:fontFamily="@font/acme"
                 android:textSize="18sp"
                 android:layout_margin="10sp"
-                android:id="@+id/crime_details_desc"/>
+                android:id="@+id/complain_details_desc"/>
         </LinearLayout>
     </ScrollView>
     <Button
@@ -105,5 +105,5 @@
         android:layout_marginBottom="5sp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:id="@+id/change_crime_button"/>
+        android:id="@+id/change_complain_button"/>
 </RelativeLayout>

@@ -24,7 +24,9 @@
         <activity android:name=".ComplainActivity" />
         <activity android:name=".CrimeActivity" />
         <activity android:name=".DetailsActivity" />
-        <activity android:name=".CrimeDetailsActivity"></activity>
+        <activity android:name=".CrimeDetailsActivity" />
+        <activity android:name=".ComplainDetailsActivity" />
+        <activity android:name=".MissingDetailsActivity"></activity>
     </application>
 
 </manifest>
