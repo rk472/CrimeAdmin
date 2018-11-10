@@ -2,6 +2,7 @@ package com.smarttersstudio.crimeadmin.viewholder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -9,6 +10,7 @@ import com.smarttersstudio.crimeadmin.R;
 
 public class MyCrimeViewHolder extends RecyclerView.ViewHolder {
     private TextView titleText,statusText,dateText,descText,pinText;
+    public Button callButton;
     private View v;
     public MyCrimeViewHolder(View itemView) {
         super(itemView);
@@ -17,6 +19,7 @@ public class MyCrimeViewHolder extends RecyclerView.ViewHolder {
         dateText=itemView.findViewById(R.id.my_crime_row_date);
         descText=itemView.findViewById(R.id.my_crime_row_desc);
         pinText=itemView.findViewById(R.id.my_crime_row_pin);
+        callButton=itemView.findViewById(R.id.my_crime_row_call);
         v=itemView;
     }
     public void setInvisible(){
@@ -36,5 +39,6 @@ public class MyCrimeViewHolder extends RecyclerView.ViewHolder {
     public void setPin(String pin){
         pinText.setText("Pin : "+pin);
     }
+
 
 }

@@ -1,7 +1,7 @@
 package com.smarttersstudio.crimeadmin.pojo;
 
 public class complain {
-    String title,desc,pin,uid,status,date;
+    String title,desc,pin,uid,status,date,phone;
 
     public complain() {
     }
@@ -10,9 +10,6 @@ public class complain {
         return title;
     }
 
-    public void setTitile(String title) {
-        this.title = title;
-    }
 
     public String getDesc() {
         return desc;
@@ -54,13 +51,26 @@ public class complain {
         this.date = date;
     }
 
-    public complain(String titile, String desc, String pin, String uid, String status, String date) {
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-        this.title = titile;
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public complain(String title, String desc, String pin, String uid, String status, String date, String phone) {
+
+        this.title = title;
         this.desc = desc;
         this.pin = pin;
         this.uid = uid;
         this.status = status;
         this.date = date;
+        this.phone = phone;
     }
 }

@@ -1,8 +1,12 @@
 package com.smarttersstudio.crimeadmin;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -64,6 +68,17 @@ public class CrimeActivity extends AppCompatActivity {
                             i.putExtra("title",model.getTitle());
                             i.putExtra("status",model.getStatus());
                             i.putExtra("pin",model.getPin());
+                            startActivity(i);
+                        }
+                    });
+                    holder.callButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i = new Intent(Intent.ACTION_CALL);
+                            i.setData(Uri.parse("tel:" + model.getPhone()));
+                            if (ActivityCompat.checkSelfPermission(CrimeActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                                return;
+                            }
                             startActivity(i);
                         }
                     });

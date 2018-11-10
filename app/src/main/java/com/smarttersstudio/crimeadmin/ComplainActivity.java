@@ -1,6 +1,11 @@
 package com.smarttersstudio.crimeadmin;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -46,7 +51,7 @@ public class ComplainActivity extends AppCompatActivity {
         FirebaseRecyclerOptions<complain> options=new FirebaseRecyclerOptions.Builder<complain>().setQuery(q,complain.class).build();
         f=new FirebaseRecyclerAdapter<complain, MyComplainViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final MyComplainViewHolder holder, int position, @NonNull complain model) {
+            protected void onBindViewHolder(@NonNull final MyComplainViewHolder holder, final int position, @NonNull final complain model) {
                 if(model.getStatus().equalsIgnoreCase("solved")){
                     holder.setInvisible();
                 }else {
@@ -56,7 +61,30 @@ public class ComplainActivity extends AppCompatActivity {
                     holder.setDesc(model.getDesc());
                     holder.setPin(model.getPin());
                     DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("users").child(model.getUid());
-
+                    holder.callButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i = new Intent(Intent.ACTION_CALL);
+                            i.setData(Uri.parse("tel:" + model.getPhone()));
+                            if (ActivityCompat.checkSelfPermission(ComplainActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                                return;
+                            }
+                            startActivity(i);
+                        }
+                    });
+                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i=new Intent(ComplainActivity.this,ComplainDetailsActivity.class);
+                            i.putExtra("date",model.getDate());
+                            i.putExtra("id",getRef(position).getKey());
+                            i.putExtra("desc",model.getDesc());
+                            i.putExtra("title",model.getTitle());
+                            i.putExtra("status",model.getStatus());
+                            i.putExtra("pin",model.getPin());
+                            startActivity(i);
+                        }
+                    });
                 }
             }
 
