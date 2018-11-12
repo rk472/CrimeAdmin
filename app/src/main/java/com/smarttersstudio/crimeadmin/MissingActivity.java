@@ -55,7 +55,7 @@ public class MissingActivity extends AppCompatActivity {
         FirebaseRecyclerOptions<Missing> options = new FirebaseRecyclerOptions.Builder<Missing>().setQuery(q, Missing.class).build();
         f = new FirebaseRecyclerAdapter<Missing, MyMissingViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final MyMissingViewHolder holder, int position, @NonNull final Missing model) {
+            protected void onBindViewHolder(@NonNull final MyMissingViewHolder holder, final int position, @NonNull final Missing model) {
                 if (model.getStatus().equalsIgnoreCase("found")) {
                     holder.setInvisible();
                 } else {
@@ -75,6 +75,21 @@ public class MissingActivity extends AppCompatActivity {
                             if (ActivityCompat.checkSelfPermission(MissingActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                                 return;
                             }
+                            startActivity(i);
+                        }
+                    });
+                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i=new Intent(MissingActivity.this,MissingDetailsActivity.class);
+                            i.putExtra("url",model.getImage());
+                            i.putExtra("name",model.getName());
+                            i.putExtra("age",model.getAge());
+                            i.putExtra("gender",model.getGender());
+                            i.putExtra("status",model.getStatus());
+                            i.putExtra("pin",model.getPin());
+                            i.putExtra("date",model.getDate());
+                            i.putExtra("id",getRef(position).getKey());
                             startActivity(i);
                         }
                     });

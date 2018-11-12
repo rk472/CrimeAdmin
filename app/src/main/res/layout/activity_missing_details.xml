@@ -31,7 +31,7 @@
                     android:text="Status"
                     android:fontFamily="@font/acme"
                     android:textSize="18sp"
-                    android:id="@+id/crime_details_status"/>
+                    android:id="@+id/missing_details_status"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -47,7 +47,7 @@
                 android:layout_gravity="right"
                 android:fontFamily="@font/acme"
                 android:textSize="18sp"
-                android:id="@+id/crime_details_date"/>
+                android:id="@+id/missing_details_date"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -81,7 +81,7 @@
                     android:text="Age"
                     android:fontFamily="@font/acme"
                     android:textSize="18sp"
-                    android:id="@+id/crime_details_age"/>
+                    android:id="@+id/missing_details_age"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -99,7 +99,7 @@
                     android:text="Gender"
                     android:fontFamily="@font/acme"
                     android:textSize="18sp"
-                    android:id="@+id/crime_gender_age"/>
+                    android:id="@+id/missing_details_gender"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -117,7 +117,7 @@
                     android:text="Pin"
                     android:fontFamily="@font/acme"
                     android:textSize="18sp"
-                    android:id="@+id/crime_details_pin"/>
+                    android:id="@+id/missing_details_pin"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -146,8 +146,9 @@
         android:text="found"
         android:textSize="17sp"
         android:textColor="#ffffff"
+        android:onClick="changeMissing"
         android:background="@color/colorAccent"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:id="@+id/change_crime_button"/>
+        android:id="@+id/change_missing_button"/>
 </RelativeLayout>
