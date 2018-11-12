@@ -32,9 +32,6 @@ public class MyMissingViewHolder extends RecyclerView.ViewHolder {
     public void setInvisible(){
         v.setLayoutParams(new LinearLayout.LayoutParams(0,0));
     }
-    public void setStatusInvisible(){
-        statusText.setVisibility(View.GONE);
-    }
     public void setName(String name){nameText.setText(name);}
     public void setAge(String age){ageText.setText(age);}
     public void setImage(String url, Context c){

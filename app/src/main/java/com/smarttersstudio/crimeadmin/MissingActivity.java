@@ -56,46 +56,40 @@ public class MissingActivity extends AppCompatActivity {
         f = new FirebaseRecyclerAdapter<Missing, MyMissingViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull final MyMissingViewHolder holder, final int position, @NonNull final Missing model) {
-                if (model.getStatus().equalsIgnoreCase("found")) {
-                    holder.setInvisible();
-                } else {
-                    holder.setStatusInvisible();
-                    holder.setDate(model.getDate());
-                    holder.setPin(model.getPin());
-                    holder.setStatus(model.getStatus());
-                    holder.setAge(model.getAge());
-                    holder.setGender(model.getGender());
-                    holder.setImage(model.getImage(), getApplicationContext());
-                    holder.setName(model.getName());
-                    holder.callButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent i = new Intent(Intent.ACTION_CALL);
-                            i.setData(Uri.parse("tel:" + model.getPhone()));
-                            if (ActivityCompat.checkSelfPermission(MissingActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                                return;
-                            }
-                            startActivity(i);
+                holder.setDate(model.getDate());
+                holder.setPin(model.getPin());
+                holder.setStatus(model.getStatus());
+                holder.setAge(model.getAge());
+                holder.setGender(model.getGender());
+                holder.setImage(model.getImage(), getApplicationContext());
+                holder.setName(model.getName());
+                holder.callButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(Intent.ACTION_CALL);
+                        i.setData(Uri.parse("tel:" + model.getPhone()));
+                        if (ActivityCompat.checkSelfPermission(MissingActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                            return;
                         }
-                    });
-                    holder.itemView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent i=new Intent(MissingActivity.this,MissingDetailsActivity.class);
-                            i.putExtra("url",model.getImage());
-                            i.putExtra("name",model.getName());
-                            i.putExtra("age",model.getAge());
-                            i.putExtra("gender",model.getGender());
-                            i.putExtra("status",model.getStatus());
-                            i.putExtra("pin",model.getPin());
-                            i.putExtra("date",model.getDate());
-                            i.putExtra("id",getRef(position).getKey());
-                            startActivity(i);
-                        }
-                    });
-                }
+                        startActivity(i);
+                    }
+                });
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(MissingActivity.this, MissingDetailsActivity.class);
+                        i.putExtra("url", model.getImage());
+                        i.putExtra("name", model.getName());
+                        i.putExtra("age", model.getAge());
+                        i.putExtra("gender", model.getGender());
+                        i.putExtra("status", model.getStatus());
+                        i.putExtra("pin", model.getPin());
+                        i.putExtra("date", model.getDate());
+                        i.putExtra("id", getRef(position).getKey());
+                        startActivity(i);
+                    }
+                });
             }
-
             @NonNull
             @Override
             public MyMissingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

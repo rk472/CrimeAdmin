@@ -105,6 +105,7 @@
         android:layout_marginBottom="5sp"
         android:textSize="17sp"
         android:textColor="#ffffff"
+        android:onClick="changeCrime"
         android:background="@color/colorAccent"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"

@@ -53,7 +53,7 @@ public class ComplainDetailsActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(ComplainDetailsActivity.this, "Status of the crime changed successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ComplainDetailsActivity.this, "Status of the Complain changed successfully", Toast.LENGTH_SHORT).show();
                     finish();
                 }else{
                     Toast.makeText(ComplainDetailsActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();

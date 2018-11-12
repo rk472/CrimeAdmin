@@ -94,5 +94,13 @@
                 android:fontFamily="@font/acme"
                 android:textSize="17sp" />
         </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/my_complain_row_call"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:text="call now"
+            android:background="@color/colorAccent"/>
     </LinearLayout>
 </android.support.v7.widget.CardView>

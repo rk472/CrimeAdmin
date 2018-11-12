@@ -10,12 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:layout_margin="6sp"
         android:weightSum="12">
         <EditText
             android:layout_width="0dp"
             android:layout_weight="10"
-            android:layout_height="45sp"
+            android:paddingLeft="10sp"
+            android:hint="Enter PIN Code"
+            android:layout_height="50sp"
             android:background="@drawable/edit_shape"
             android:id="@+id/crime_search"
             android:inputType="number"/>
@@ -25,10 +28,8 @@
             android:gravity="center"
             android:layout_height="wrap_content">
             <android.support.design.widget.FloatingActionButton
-                android:layout_width="0dp"
-                android:layout_margin="2sp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
                 android:src="@drawable/search_vect"
                 android:onClick="searchCrime"/>
         </LinearLayout>

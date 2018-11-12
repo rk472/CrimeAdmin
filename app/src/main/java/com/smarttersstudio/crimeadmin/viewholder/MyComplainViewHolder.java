@@ -29,15 +29,15 @@ public class MyComplainViewHolder extends RecyclerView.ViewHolder {
         titleText.setText(title);
     }
     public void setStatus(String status){
-        statusText.setText("status : "+status);
+        statusText.setText(status);
     }
     public void setDate(String date){
-        dateText.setText("Time : "+date);
+        dateText.setText(date);
     }
-    public void setDesc(String desc){ descText.setText("Details : "+desc);
+    public void setDesc(String desc){ descText.setText(desc);
     }
     public void setPin(String pin){
-        pinText.setText("Pin : "+pin);
+        pinText.setText(pin);
     }
 
 }
